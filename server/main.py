@@ -5,6 +5,9 @@ import base64
 from typing import Optional
 from fastapi import FastAPI, WebSocket
 
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 import cv2
 import numpy as np
 from fer import FER
@@ -31,6 +34,6 @@ async def websocket_endpoint(websocket: WebSocket):
             "emotion": max(prediction[0]['emotions'], key=prediction[0]['emotions'].get)
         }
         await websocket.send_json(response)
-        websocket.close()
+        await websocket.close()
     except:
-        websocket.close()
+        await websocket.close()

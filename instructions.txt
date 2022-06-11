@@ -1,0 +1,25 @@
+- cd emotion-recognition
+
+commands to start server
+
+- cd server/
+- python3 -m venv myenv       # creating python virtual env
+- source myenv/bin/activate
+- pip install -r req.txt
+- uvicorn main:app --reload
+
+commands to install node
+
+- curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+
+open new terminal 
+
+- nvm install 18.3.0
+
+
+commands to start frontend
+
+- cd front/
+- npm install -g yarn 
+- yarn
+- yarn start
